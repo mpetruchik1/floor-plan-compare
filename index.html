@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floor Plan Comparison</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f7f7;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+  .header-left { display: flex; align-items: center; gap: 8px; }
+  .header-left svg { width: 20px; height: 20px; }
+  .header-left span { font-size: 15px; color: #333; }
+  .header-right { display: flex; gap: 16px; }
+  .header-right svg { width: 22px; height: 22px; color: #333; }
+
+  .section { background: #fff; padding: 20px 16px; }
+  .section-title { font-size: 17px; font-weight: 700; color: #222; margin-bottom: 16px; }
+
+  .plan-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .plan-image { width: 100%; background: #f0f0f0; }
+  .plan-image img { width: 100%; display: block; }
+  .plan-details { padding: 12px 14px 14px; }
+  .plan-price { font-size: 22px; font-weight: 700; color: #222; }
+  .plan-meta { font-size: 13px; color: #888; margin-top: 2px; }
+  .plan-cta {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .price-drop {
+    display: inline-block;
+    background: #e8e0f0;
+    color: #5a3d8a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    margin-right: 6px;
+    letter-spacing: 0.3px;
+  }
+  .plan-name-inline {
+    font-size: 13px;
+    color: #888;
+    vertical-align: middle;
+  }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+
+  .ai-compare {
+    background: #f5f3ff;
+    border: 1px solid #e4dff0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+  }
+  .ai-compare-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #7c5cbf;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .ai-compare-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.45;
+  }
+  .ai-compare-text strong { font-weight: 600; }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    display: flex;
+    gap: 10px;
+    padding: 10px 16px 28px;
+    background: #fff;
+    border-top: 1px solid #eee;
+  }
+  .btn-call {
+    flex: 0 0 auto;
+    padding: 14px 24px;
+    border: 1.5px solid #222;
+    border-radius: 40px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+  }
+  .btn-message {
+    flex: 1;
+    padding: 14px;
+    background: #a82e2b;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .btn-message-sub { font-size: 12px; font-weight: 400; opacity: 0.9; }
+  .spacer { height: 90px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <span>Search</span>
+  </div>
+  <div class="header-right">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">1 Bed (2)</div>
+
+  <div class="ai-compare">
+    <div class="ai-compare-label">AI comparison</div>
+    <div class="ai-compare-text">
+      <strong>A1B adds a separate dining area and walk-in closet that A1A doesn't have.</strong> The kitchen is also wider with more counter space. +200 sqft for $90/mo more.
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-image">
+      <img src="a1a.png" alt="A1A floor plan">
+    </div>
+    <div class="plan-details">
+      <div><span class="price-drop">$67 PRICE DROP</span><span class="plan-name-inline">A1A</span></div>
+      <div class="plan-price">$1,174+/mo</div>
+      <div class="plan-meta">1 Ba · 550 Sqft.</div>
+      <button class="plan-cta">3 units available now</button>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="plan-card">
+    <div class="plan-image">
+      <img src="a1b.png" alt="A1B floor plan">
+    </div>
+    <div class="plan-details">
+      <div><span class="price-drop">$75 PRICE DROP</span><span class="plan-name-inline">A1B</span></div>
+      <div class="plan-price">$1,264+/mo</div>
+      <div class="plan-meta">1 Ba · 750 Sqft.</div>
+      <button class="plan-cta">Available Jun 20</button>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="bottom-bar">
+  <button class="btn-call">Call</button>
+  <button class="btn-message">Send message<br><span class="btn-message-sub">Deal: $500 off</span></button>
+</div>
+
+</body>
+</html>
